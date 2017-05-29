@@ -1,0 +1,8 @@
+{
+  // App module configs
+  "App": {
+    "config": {
+      "db": "postgres://postgres:@localhost:5432/production_db"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  // App module configs
+  "App": {
+    "config": {
+    	"port": 5000,
+    	"db": "postgres://postgres:@localhost:5432/test_db"
+    }
+  }
+}

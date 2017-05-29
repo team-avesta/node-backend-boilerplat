@@ -1,0 +1,8 @@
+node-backend-boilerplate:
+  build: .
+  dockerfile: Dockerfile-pro
+  environment:
+    NODE_ENV: production
+  ports:
+    - '3000:3000'
+  entrypoint: pm2 start index.js --no-daemon
