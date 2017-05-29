@@ -71,10 +71,6 @@ User.list = function(limit, offset) {
     let query = "SELECT * FROM users";
     let values = [];
 
-    if (test == 1) {
-
-    }
-
     if (limit && offset) {
         query = "SELECT count(*) over() as totalCount, *  FROM users order by user_id limit $1 offset $2 ";
         values = [limit, offset];
