@@ -1,2 +1,2 @@
-# node-backend-boilerplat
-This is boilerplat application for node.js backend API
+# node-backend-boilerplate
+This is boilerplate application for node.js backend API
