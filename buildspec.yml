@@ -1,0 +1,16 @@
+version: 0.2
+artifacts:
+  discard-paths: true
+  files: /tmp/build.json
+phases:
+  pre_build:
+    commands:
+      - "echo -n \"$CODEBUILD_BUILD_ID\" | sed \"s/.*:\\([[:xdigit:]]\\{7\\}\\).*/\\1/\" > /tmp/build_id.out"
+      - "printf \"%s:%s\" \"aws-ecr-docker-image-name\" \"$(cat /tmp/build_id.out)\" > /tmp/build_tag.out"
+      - "$(aws ecr get-login --region ap-southeast-1)"
+  build:
+    commands:
+      - "bash bin/build.sh \"$CODEBUILD_BUILD_ID\" \"node-backend-boilerplate\""
+  post_build:
+    commands:
+      - "bash bin/postBuild.sh \"$CODEBUILD_BUILD_ID\" \"node-backend-boilerplate\""
