@@ -7,6 +7,7 @@ phases:
     commands:
       - "echo -n \"$CODEBUILD_BUILD_ID\" | sed \"s/.*:\\([[:xdigit:]]\\{7\\}\\).*/\\1/\" > /tmp/build_id.out"
       - "printf \"%s:%s\" \"aws-ecr-docker-image-name\" \"$(cat /tmp/build_id.out)\" > /tmp/build_tag.out"
+      - "printf '{\"tag\":\"%s\",\"taskDefinition\":\"node-backend-boilerplate\",\"service\":\"node-backend-boilerplate\",\"cluster\":\"nodebackend\"}' \"$(cat /tmp/build_id.out)\" > /tmp/build.json"
       - "$(aws ecr get-login --region ap-southeast-1)"
   build:
     commands:
