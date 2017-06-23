@@ -1,7 +1,7 @@
 buildId=$1
 serviceName=$2
-hookUrl='https://hooks.slack.com/services/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'
-slackChannel='shreedaaws'
+hookUrl='slack-hooks-url'
+slackChannel='slack-chanel-name'
 
 msg="Preparing to push docker image to ECR (#$buildId,$serviceName) :white_check_mark:"
 json='{"hookUrl":"'$hookUrl'","slackChannel":"'$slackChannel'","msg":"'$msg'"}'
